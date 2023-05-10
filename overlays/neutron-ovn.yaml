@@ -14,7 +14,7 @@ applications:
       dns-servers: *dns_servers
   ovn-central:
     charm: __CHARM_STORE____CHARM_CS_NS____CHARM_CH_PREFIX__ovn-central
-    constraints: mem=2G
+    constraints: mem=2G cores=2
     num_units: __NUM_OVN_CENTRAL_UNITS__
     options:
       source: *openstack_origin

@@ -6,7 +6,7 @@ applications:
   octavia:
     charm: __CHARM_STORE____CHARM_CS_NS____CHARM_CH_PREFIX__octavia
     num_units: __NUM_OCTAVIA_UNITS__
-    constraints: mem=2G
+    constraints: mem=2G cores=2
     options:
       debug: *debug
       openstack-origin: *openstack_origin

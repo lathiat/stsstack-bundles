@@ -38,7 +38,7 @@ applications:
   nova-cloud-controller:
     num_units: __NUM_NOVACC_UNITS__
     charm: __CHARM_STORE____CHARM_CS_NS____CHARM_CH_PREFIX__nova-cloud-controller
-    constraints: mem=2G
+    constraints: mem=2G cores=2
     options:
       debug: *debug
       verbose: *verbose
@@ -50,7 +50,7 @@ applications:
   neutron-api:
     num_units: __NUM_NEUTRON_API_UNITS__
     charm: __CHARM_STORE____CHARM_CS_NS____CHARM_CH_PREFIX__neutron-api
-    constraints: mem=2G
+    constraints: mem=2G cores=2
     options:
       debug: *debug
       verbose: *verbose
@@ -68,7 +68,7 @@ applications:
   # Changes made here may need to be replicated in overlays/cinder-volume.yaml
   cinder:
     num_units: __NUM_CINDER_UNITS__
-    constraints: mem=2G
+    constraints: mem=2G cores=2
     charm: __CHARM_STORE____CHARM_CS_NS____CHARM_CH_PREFIX__cinder
     options:
       debug: *debug

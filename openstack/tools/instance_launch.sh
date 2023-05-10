@@ -135,5 +135,6 @@ openstack server create --wait \
     --min $instance_qty \
     --max $instance_qty \
     $server_name
+    #--boot-from-volume 6 \
 
 echo 'Hint: use ssh -i ~/testkey.pem ubuntu@<ip> to access new instances (may also need a floating IP, see ./tools/float_all.sh).'

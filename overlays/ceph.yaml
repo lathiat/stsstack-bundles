@@ -6,7 +6,7 @@ applications:
   ceph-mon:
     charm: __CHARM_STORE____CHARM_CS_NS____CHARM_CH_PREFIX__ceph-mon
     num_units: __NUM_CEPH_MON_UNITS__
-    constraints: mem=2G
+    constraints: mem=2G cores=2
     options:
       source: *source
       loglevel: *loglevel
@@ -16,7 +16,7 @@ applications:
   ceph-osd:
     charm: __CHARM_STORE____CHARM_CS_NS____CHARM_CH_PREFIX__ceph-osd
     num_units: __NUM_CEPH_OSD_UNITS__
-    constraints: mem=2G
+    constraints: mem=2G cores=2
     options:
       source: *source
       loglevel: *loglevel

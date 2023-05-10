@@ -7,7 +7,7 @@ applications:
   designate:
     charm: __CHARM_STORE____CHARM_CS_NS____CHARM_CH_PREFIX__designate
     num_units: __NUM_DESIGNATE_UNITS__
-    constraints: mem=2G
+    constraints: mem=2G cores=2
     options:
       debug: *debug
       openstack-origin: *openstack_origin

@@ -14,7 +14,7 @@ applications:
       enabled-services: api,scheduler
   cinder-volume:
     num_units: __NUM_CINDER_UNITS__
-    constraints: mem=2G
+    constraints: mem=2G cores=2
     charm: __CHARM_STORE____CHARM_CS_NS____CHARM_CH_PREFIX__cinder
     options:
       debug: *debug
