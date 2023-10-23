@@ -11,7 +11,7 @@ applications:
   keystone:
     num_units: __NUM_KEYSTONE_UNITS__
     charm: __CHARM_STORE____CHARM_CS_NS____CHARM_CH_PREFIX__keystone
-    constraints: mem=1G
+    constraints: mem=2G
     options:
       debug: *debug
       verbose: *verbose

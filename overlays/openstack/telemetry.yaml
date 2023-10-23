@@ -7,7 +7,7 @@ applications:
   ceilometer:
     charm: __CHARM_STORE____CHARM_CS_NS____CHARM_CH_PREFIX__ceilometer
     num_units: __NUM_TELEMETRY_UNITS__
-    constraints: mem=1G
+    constraints: mem=2G
     options:
       debug: *debug
       verbose: *verbose
@@ -17,7 +17,7 @@ applications:
   aodh:
     charm: __CHARM_STORE____CHARM_CS_NS____CHARM_CH_PREFIX__aodh
     num_units: __NUM_TELEMETRY_UNITS__
-    constraints: mem=1G
+    constraints: mem=2G
     options:
       debug: *debug
       openstack-origin: *openstack_origin

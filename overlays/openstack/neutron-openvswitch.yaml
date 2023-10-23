@@ -14,6 +14,8 @@ applications:
       verbose: *verbose
       firewall-driver: __NEUTRON_FW_DRIVER__
       enable-local-dhcp-and-metadata: True
+    bindings:
+      data: vsw1
 relations:
   - [ neutron-api, neutron-openvswitch ]
   - [ neutron-openvswitch, nova-compute ]

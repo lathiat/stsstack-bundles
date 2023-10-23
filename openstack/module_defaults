@@ -35,10 +35,10 @@ MOD_PARAMS[__NEUTRON_FW_DRIVER__]=openvswitch  # legacy is iptables_hybrid
 MOD_PARAMS[__SSL_CA__]=
 MOD_PARAMS[__SSL_CERT__]=
 MOD_PARAMS[__SSL_KEY__]=
-MOD_PARAMS[__DVR_DATA_PORT__]=''
-MOD_PARAMS[__OVN_DATA_PORT__]=''
-MOD_PARAMS[__BIND_DNS_FORWARDER__]=`get_local_upstream_dns`
-MOD_PARAMS[__ML2_DNS_FORWARDER__]=`get_local_upstream_dns`
+MOD_PARAMS[__DVR_DATA_PORT__]='br-data:eth4'
+MOD_PARAMS[__OVN_DATA_PORT__]='br-data:eth4'
+MOD_PARAMS[__BIND_DNS_FORWARDER__]=192.168.1.254
+MOD_PARAMS[__ML2_DNS_FORWARDER__]=192.168.1.254
 MOD_PARAMS[__GRAYLOG_SNAP_CHANNEL__]='3/stable'
 MOD_PARAMS[__GRAFANA_SNAP_CHANNEL__]='stable'
 MOD_PARAMS[__OCTAVIA_RETROFIT_UCA__]='rocky'  # charm defaults to rocky since it's the first version supported
@@ -49,12 +49,12 @@ MOD_PARAMS[__OVERLAY_NETWORK_TYPE__]='vxlan'
 MOD_PARAMS[__MYSQL_INTERFACE__]='mysql:shared-db'
 MOD_PARAMS[__MAAS_URL__]=  # e.g. http://1.2.3.4:5240/MAAS
 MOD_PARAMS[__MAAS_API_KEY__]=
-MOD_PARAMS[__GLOBAL_MTU__]=8958  # maximum available mtu in stsstack
-MOD_PARAMS[__PATH_MTU__]=1550
+MOD_PARAMS[__GLOBAL_MTU__]=9000  # maximum available mtu in stsstack
+MOD_PARAMS[__PATH_MTU__]=1558
 
 # This is enough for creating one ubuntu vm or multiple cirros vms but some
 # scenarios may want to allow more per compute (e.g. octavia).
-MOD_PARAMS[__NOVA_COMPUTE_UNIT_CONSTRAINTS__]="mem=4G"
+MOD_PARAMS[__NOVA_COMPUTE_UNIT_CONSTRAINTS__]="mem=8G cores=12 root-disk=16G"
 
 # Try to use current model (or newly requested one) as subdomain name
 model_subdomain=`get_juju_model`

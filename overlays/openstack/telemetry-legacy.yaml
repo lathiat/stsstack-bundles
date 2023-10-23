@@ -7,7 +7,7 @@ applications:
   ceilometer:
     charm: __CHARM_STORE____CHARM_CS_NS____CHARM_CH_PREFIX__ceilometer
     num_units: __NUM_TELEMETRY_UNITS__
-    constraints: mem=1G
+    constraints: mem=2G
     options:
       debug: *debug
       verbose: *verbose
@@ -17,7 +17,7 @@ applications:
   mongodb:
     charm: __CHARM_STORE____CHARM_CS_NS____CHARM_CH_PREFIX__mongodb
     num_units: 1
-    constraints: mem=1G
+    constraints: mem=2G
 relations:
   - [ ceilometer, 'keystone:identity-service' ]
   - [ 'ceilometer:amqp', 'rabbitmq-server:amqp' ]

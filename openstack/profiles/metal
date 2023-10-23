@@ -1,9 +1,9 @@
 #!/bin/bash -ex
 
-[[ -z "$NAMESERVER" ]] && export NAMESERVER="1.1.1.1"
-[[ -z "$GATEWAY" ]] && export GATEWAY="10.1.0.1"
-[[ -z "$CIDR_EXT" ]] && export CIDR_EXT="10.1.0.0/24"
-[[ -z "$FIP_RANGE" ]] && export FIP_RANGE="10.1.0.200:10.1.0.254"
+[[ -z "$NAMESERVER" ]] && export NAMESERVER="192.168.1.254"
+[[ -z "$GATEWAY" ]] && export GATEWAY="100.64.0.254"
+[[ -z "$CIDR_EXT" ]] && export CIDR_EXT="100.64.0.0/24"
+[[ -z "$FIP_RANGE" ]] && export FIP_RANGE="100.64.0.110:100.64.0.129"
 [[ -z "$CIDR_PRIV" ]] && export CIDR_PRIV="192.168.21.0/24"
 export BARE_METAL=true
 

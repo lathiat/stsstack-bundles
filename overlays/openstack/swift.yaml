@@ -9,7 +9,7 @@ applications:
   swift-proxy:
     num_units: __NUM_SWIFT_PROXY_UNITS__
     charm: __CHARM_STORE____CHARM_CS_NS____CHARM_CH_PREFIX__swift-proxy
-    constraints: mem=1G
+    constraints: mem=2G
     options:
       debug: *debug
       zone-assignment: manual
@@ -22,7 +22,7 @@ applications:
   swift-storage-z1:
     num_units: __NUM_SWIFT_STORAGE_UNITS__
     charm: __CHARM_STORE____CHARM_CS_NS____CHARM_CH_PREFIX__swift-storage
-    constraints: mem=1G
+    constraints: mem=2G
     options:
       zone: 1
       block-device: 'dummy'
@@ -32,7 +32,7 @@ applications:
   swift-storage-z2:
     num_units: __NUM_SWIFT_STORAGE_UNITS__
     charm: __CHARM_STORE____CHARM_CS_NS____CHARM_CH_PREFIX__swift-storage
-    constraints: mem=1G
+    constraints: mem=2G
     options:
       zone: 2
       block-device: 'dummy'
@@ -42,7 +42,7 @@ applications:
   swift-storage-z3:
     num_units: __NUM_SWIFT_STORAGE_UNITS__
     charm: __CHARM_STORE____CHARM_CS_NS____CHARM_CH_PREFIX__swift-storage
-    constraints: mem=1G
+    constraints: mem=2G
     options:
       zone: 3
       block-device: 'dummy'

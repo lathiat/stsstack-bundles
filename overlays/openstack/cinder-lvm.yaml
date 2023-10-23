@@ -6,6 +6,6 @@ applications:
       block-device: /dev/vdb
   __CINDER_VOLUME_INTERFACE__:
     storage:
-      block-devices: 'cinder,40G,1'
+      block-devices: 'maas,40G,1'
 relations:
   - [ __CINDER_VOLUME_INTERFACE__, cinder-lvm ]

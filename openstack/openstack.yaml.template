@@ -6,8 +6,8 @@
 # your bundle.
 
 # Variables
-debug:                      &debug                     True
-verbose:                    &verbose                   True
+debug:                      &debug                     False
+verbose:                    &verbose                   False
 openstack_origin:           &openstack_origin          __OS_ORIGIN__
 source:                     &source                    __SOURCE__
 
@@ -20,13 +20,13 @@ applications:
   rabbitmq-server:
     num_units: __NUM_RABBIT_UNITS__
     charm: __CHARM_STORE____CHARM_CS_NS____CHARM_CH_PREFIX__rabbitmq-server
-    constraints: mem=1G
+    constraints: mem=2G
     options:
       min-cluster-size: __NUM_RABBIT_UNITS__
   nova-compute:
     charm: __CHARM_STORE____CHARM_CS_NS____CHARM_CH_PREFIX__nova-compute
     num_units: __NUM_COMPUTE_UNITS__
-    constraints: __NOVA_COMPUTE_UNIT_CONSTRAINTS__
+    constraints: __NOVA_COMPUTE_UNIT_CONSTRAINTS__ spaces=vsw0,vsw1,vsw2,vsw3
     options:
       debug: *debug
       verbose: *verbose
@@ -35,6 +35,9 @@ applications:
       migration-auth-type: ssh
       openstack-origin: *openstack_origin
       force-raw-images: false  # disable for stsstack since conversion kills the disks and is not needed
+    bindings:
+      "": vsw0
+      migration: vsw2
   nova-cloud-controller:
     num_units: __NUM_NOVACC_UNITS__
     charm: __CHARM_STORE____CHARM_CS_NS____CHARM_CH_PREFIX__nova-cloud-controller
@@ -44,6 +47,7 @@ applications:
       verbose: *verbose
       network-manager: Neutron
       openstack-origin: *openstack_origin
+      disk-allocation-ratio: 4
       ssl_ca: *ssl_ca
       ssl_cert: *ssl_cert
       ssl_key: *ssl_key

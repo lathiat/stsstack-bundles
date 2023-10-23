@@ -3,7 +3,7 @@ applications:
     # NOTE: using __SKIP_PREFIX__ to avoid getting clobbered by the osm version
     charm: __CHARM_STORE____CHARM_CS_NS____CHARM_CH_PREFIX____SKIP_PREFIX__grafana
     num_units: 1
-    constraints: mem=1G
+    constraints: mem=2G
     options:
       snap_channel: __GRAFANA_SNAP_CHANNEL__
       port: '3000'  # XXX: bug 1752960
@@ -12,7 +12,7 @@ applications:
   prometheus:
     charm: __CHARM_STORE____CHARM_CS_NS____CHARM_CH_PREFIX__prometheus2
     num_units: 1
-    constraints: mem=1G
+    constraints: mem=2G
   telegraf:
     charm: __CHARM_STORE____CHARM_CS_NS____CHARM_CH_PREFIX__telegraf
     expose: True
