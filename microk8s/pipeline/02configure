@@ -41,3 +41,12 @@ do
     esac
     shift
 done
+
+MOD_MSGS[microk8s.0]='Use the following commnads to deploy k8s models'
+MOD_MSGS[microk8s.1]='juju wait-for application microk8s  --summary'
+MOD_MSGS[microk8s.2]='kubeconfig="$(juju exec --unit microk8s/leader -- microk8s config)"'
+MOD_MSGS[microk8s.3]='controller="$(juju controller-config controller-name)"'
+MOD_MSGS[microk8s.4]='echo "$kubeconfig" | juju add-k8s microk8s --controller "$controller"'
+MOD_MSGS[microk8s.5]=''
+MOD_MSGS[microk8s.6]='Once destroyed, clean up with:'
+MOD_MSGS[microk8s.7]='juju remove-k8s --client --controller $(juju controller-config controller-name) microk8s'
