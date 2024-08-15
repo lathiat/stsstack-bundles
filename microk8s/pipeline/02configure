@@ -29,6 +29,10 @@ do
             MOD_PARAMS[__CONTAINERD_NO_PROXY__]=$2
             shift
             ;;
+        --hostpath-storage)  #__OPT__type:<bool> (default=true)
+            MOD_PARAMS[__HOSTPATH_STORAGE__]=$2
+            shift
+            ;;
         *)
             echo "ERROR: invalid input '$1'"
             _usage

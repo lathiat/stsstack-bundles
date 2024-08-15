@@ -9,3 +9,4 @@ applications:
       containerd_http_proxy: __CONTAINERD_PROXY__
       containerd_https_proxy: __CONTAINERD_PROXY__
       containerd_no_proxy: __CONTAINERD_NO_PROXY__
+      hostpath_storage: __HOSTPATH_STORAGE__
