@@ -1,0 +1,22 @@
+# Your personal Pro token works, get it from https://ubuntu.com/pro/dashboard
+# Note: Need to update both ua-anbox-controller.yaml and ua-anbox-subcluster.yaml
+
+variables:
+  ua_token: &ua_token TOKEN_HERE
+
+applications:
+  ams:
+    options:
+      ua_token: *ua_token
+  ams-node-controller:
+    options:
+      ua_token: *ua_token
+  lxd:
+    options:
+      ua_token: *ua_token
+  anbox-stream-agent:
+    options:
+      ua_token: *ua_token
+  anbox-cloud-dashboard:
+    options:
+      ua_token: *ua_token

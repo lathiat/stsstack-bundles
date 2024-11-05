@@ -1,0 +1,18 @@
+applications:
+  anbox-cloud-dashboard:
+    channel: 1.23/stable
+
+  anbox-stream-agent:
+    channel: 1.23/stable
+
+  coturn:
+    channel: 1.23/stable
+
+  ams:
+    channel: 1.23/stable
+
+  ams-node-controller:
+    channel: 1.23/stable
+
+  lxd:
+    channel: 1.23/stable

@@ -1,0 +1,95 @@
+name: anbox-cloud
+website: https://anbox-cloud.io
+issues: https://bugs.launchpad.net/anbox-cloud
+description: |
+  The bundle provides a full deployment of Anbox Cloud with support for streaming.
+series: jammy
+saas:
+  internal-ca:
+    url: admin/anbox-controller.internal-ca
+  nats:
+    url: admin/anbox-controller.nats
+  anbox-stream-gateway:
+    url: admin/anbox-controller.anbox-stream-gateway
+  anbox-stream-gateway-lb:
+    url: admin/anbox-controller.anbox-stream-gateway-lb
+applications:
+  anbox-cloud-dashboard:
+    charm: 'anbox-cloud-dashboard'
+    num_units: 1
+    to: ['0']
+    channel: 1.23/stable
+
+  anbox-stream-agent:
+    charm: 'anbox-stream-agent'
+    num_units: 1
+    options:
+      region: subcluster1
+    to: ['1']
+    channel: 1.23/stable
+
+  coturn:
+    charm: 'coturn'
+    expose: true
+    num_units: 1
+    to: ['1']
+    channel: 1.23/stable
+
+  ams:
+    charm: 'ams'
+    num_units: 1
+    options:
+      prometheus_target_port: 20002
+    to: ['1']
+    channel: 1.23/stable
+
+  ams-node-controller:
+    charm: 'ams-node-controller'
+    expose: true
+    options:
+      port: '10000-11000'
+
+    channel: 1.23/stable
+
+  lxd:
+    charm: 'ams-lxd'
+    num_units: 1
+    constraints: "cpu-cores=8 mem=16G root-disk=50G"
+    channel: 1.23/stable
+
+  etcd-ca:
+    # The etcd CA is meant to be used for authenticated TLS communication with etcd
+    charm: easyrsa
+    channel: stable
+    num_units: 1
+    to: ['1']
+
+  etcd:
+    charm: etcd
+    channel: stable
+    num_units: 1
+    options:
+      channel: 3.4/stable
+    to: ['1']
+
+relations:
+- ['etcd:certificates', 'etcd-ca:client']
+- ['ams:etcd', 'etcd:db']
+- ['ams-node-controller:lxd', 'lxd:api']
+- ['ams:lxd', 'lxd:api']
+- ['ams:rest-api', 'anbox-stream-agent:ams']
+- ['coturn:stun', 'anbox-stream-agent:stun']
+- ['anbox-cloud-dashboard:certificates', 'internal-ca:client']
+- ['anbox-cloud-dashboard:ams', 'ams:rest-api']
+- ['anbox-stream-agent:certificates', 'internal-ca:client']
+- ['anbox-stream-agent:client', 'ams:agent']
+- ['anbox-cloud-dashboard:gateway', 'anbox-stream-gateway:client']
+- ['anbox-cloud-dashboard:reverseproxy', 'anbox-stream-gateway-lb:reverseproxy']
+- ['nats:client', 'anbox-stream-agent:nats']
+machines:
+  '0':
+    series: jammy
+    constraints: "cpu-cores=4 mem=4G root-disk=40G"
+  '1':
+    series: jammy
+    constraints: "cpu-cores=4 mem=4G root-disk=40G"

@@ -1,0 +1,3 @@
+applications:
+  anbox-stream-gateway:
+    channel: 1.23/stable

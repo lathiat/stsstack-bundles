@@ -1,0 +1,33 @@
+# Your personal Pro token works, get it from https://ubuntu.com/pro/dashboard
+# Note: Need to update both ua-anbox-controller.yaml and ua-anbox-subcluster.yaml
+
+variables:
+  ua_token: &ua_token TOKEN_HERE
+
+applications:
+  anbox-stream-gateway:
+    options:
+      ua_token: *ua_token
+    offers:
+      anbox-stream-gateway:
+        endpoints: [client]
+        acl:
+          admin: admin
+  anbox-stream-gateway-lb:
+    offers:
+      anbox-stream-gateway-lb:
+        endpoints: [reverseproxy]
+        acl:
+          admin: admin
+  nats:
+    offers:
+      nats:
+        endpoints: [client]
+        acl:
+          admin: admin
+  internal-ca:
+    offers:
+      internal-ca:
+        endpoints: [client]
+        acl:
+          admin: admin

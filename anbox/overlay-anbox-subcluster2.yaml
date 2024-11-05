@@ -1,0 +1,4 @@
+applications:
+  anbox-stream-agent:
+    options:
+      region: subcluster2
